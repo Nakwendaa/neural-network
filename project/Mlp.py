@@ -254,10 +254,12 @@ class Mlp:
 
         if is_mnist:
             train_x = np.array(training_data[0][0])
+            print(train_x.shape)
             train_y = np.array(training_data[0][1])
-            train_y.shape = (1, train_y.shape[0])
+            #train_y.shape = (1, train_y.shape[0])
             valid_x = np.array(training_data[1][0])
             valid_y = np.array(training_data[1][1])
+            print(valid_y.shape)
             valid_y.shape = (1, valid_y.shape[0])
             test_x = np.array(training_data[2][0])
             test_y = np.array(training_data[2][1])
@@ -312,9 +314,9 @@ class Mlp:
                 err_loss.append(
                     (train_err, valid_err, test_err, l_train, l_valid, l_test))
 
-                print "Epoch (" + str(i) + "): " + str(train_err) + "%, " + str(
+                print ("Epoch (" + str(i) + "): " + str(train_err) + "%, " + str(
                     valid_err) + "%, " + str(test_err) + "%, " + str(
-                    l_train) + ", " + str(l_valid) + ", " + str(l_test)
+                    l_train) + ", " + str(l_valid) + ", " + str(l_test))
                 i += 1
 
         if is_mnist:
